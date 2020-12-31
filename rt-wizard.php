@@ -34,44 +34,28 @@ function rtwizd_wizard_init() {
  */
 function rtwizd_wizard_shortcode( $atts ) {
 	$atts = shortcode_atts( array( 'id' => '0' ), $atts, 'rt-wizard' );
+	$sets = json_decode( file_get_contents( __DIR__ . '/setup.json' ), 'false' );
+	$sets = $sets[ $atts['id'] ];
 
 	wp_enqueue_script( 'rt-wizard-js', plugin_dir_url( __FILE__ ) . '/rt-wizard.js', array(), '0.1', true );
 	wp_localize_script(
 		'rt-wizard-js',
 		'RTWIZZ',
 		array(
-			'id' => $atts['id'],
-			'',
+			'id'      => $atts['id'],
+			'content' => $sets,
 		)
 	);
 
-	switch ( $atts['id'] ) {
-		case '1':
-			$opts01     = array(
-				'0' => 'Select...',
-				'1' => 'PSP 1000',
-				'2' => 'PSP 2000',
-				'3' => 'PSP 3000',
-				'4' => 'PSP Street',
-				'G' => 'PSP Go!',
-			);
-			$opts01html = '';
-			foreach ( $opts01 as $ok => $ov ) {
-				$opts01html .= "<option value=\"{$ok}\">{$ov}</option>";
-			}
+	$selecthtml = '';
+	foreach ( $sets['selection'] as $name => $selection ) {
+		$optshtml = '';
+		foreach ( $sets['selection'][ $name ] as $legend => $option ) {
+			$optshtml .= "<option value=\"{$legend}\">{$option}</option>";
+		}
 
-			$opts02     = array(
-				0 => 'Select...',
-				1 => 'Yes',
-				2 => 'No',
-			);
-			$opts02html = '';
-			foreach ( $opts02 as $ok => $ov ) {
-				$opts02html .= "<option value=\"{$ok}\">{$ov}</option>";
-			}
-
-			return "<label for=\"rtwiz1\">aaa</label><select id=\"rtwiz1\">{$opts01html}</select><label for=\"rtwiz2\">bbb</label><select id=\"rtwiz2\">{$opts02html}</select>";
-		default:
-			return '';
+		$selecthtml .= "<label for=\"rtwiz1\">aaa</label><select id=\"{$name}\">{$optshtml}</select>";
 	}
+
+	return $selecthtml;
 }

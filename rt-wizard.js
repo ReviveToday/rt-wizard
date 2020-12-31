@@ -6,26 +6,14 @@
  * @license MIT
  */
 
-data = {
-	'1': {
-		'changer': 'rtwiz1',
-		'involves' : [
-			'SF1'
-		],
-		'action': {
-			'1': 'SF1'
-		}
-	}
-}
-
-if ( typeof data[ RTWIZZ.id ] !== 'undefined' ) {
-	settings = data[ RTWIZZ.id ];
+if ( typeof RTWIZZ.content !== 'undefined' ) {
+	settings = RTWIZZ.content;
 	rtwizz_changer();
 	document.getElementById( settings.changer ).addEventListener( "change", rtwizz_changer );
 }
 
 function rtwizz_changer() {
-	settings = data[ RTWIZZ.id ];
+	settings = RTWIZZ.content;
 	settings.involves.forEach(
 		function(entry) {
 			document.getElementsByClassName( entry )[0].style.display = 'none';
