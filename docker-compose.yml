@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: localconnect
+  www:
+    depends_on:
+    - db
+    image: wordpress:latest
+    volumes:
+    - ".:/var/www/html/wp-content/plugins/rt-wizard"
+    ports:
+    - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: localconnect
+      WORDPRESS_DEBUG: 1
