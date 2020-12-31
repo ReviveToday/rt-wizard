@@ -50,13 +50,14 @@ function rtwizd_wizard_shortcode( $atts ) {
 	$selecthtml = '';
 	foreach ( $sets['selection'] as $name => $selection ) {
 		$label = $sets['selection'][ $name ]['name'];
+		$class = ( isset( $sets['selection'][ $name ]['class'] ) ) ? $sets['selection'][ $name ]['class'] : '';
 
 		$optshtml = '';
 		foreach ( $sets['selection'][ $name ]['options'] as $legend => $option ) {
 			$optshtml .= "<option value=\"{$legend}\">{$option}</option>";
 		}
 
-		$selecthtml .= "<label for=\"{$name}\">{$label}</label><select id=\"{$name}\">{$optshtml}</select>";
+		$selecthtml .= "<div class=\"{$class}\"><label for=\"{$name}\">{$label}</label><select id=\"{$name}\">{$optshtml}</select></div>";
 	}
 
 	return $selecthtml;
