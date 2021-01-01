@@ -3,11 +3,17 @@
 		"changer": "rtwiz1",
 		"involves" : [
 			"SF1",
-			"p2kc"
+			"p2kc",
+			"SF2",
+			"SF2s",
+			"SF3",
+			"SFG"
 		],
 		"action": {
 			"1": "SF1",
-			"2": "p2kc"
+			"2": "p2kc",
+			"3": "SF3",
+			"G": "SFG"
 		},
 		"selection": {
 			"rtwiz1": {
