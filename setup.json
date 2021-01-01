@@ -1,6 +1,9 @@
 {
 	"1": {
-		"changer": "rtwiz1",
+		"changer": [
+			"rtwiz1",
+			"rtwiz2"
+		],
 		"involves" : [
 			"SF1",
 			"p2kc",
@@ -12,6 +15,8 @@
 		"action": {
 			"1": "SF1",
 			"2": "p2kc",
+			"o1": "SF2",
+			"o2": "SF2s",
 			"3": "SF3",
 			"G": "SFG"
 		},
@@ -31,9 +36,9 @@
 				"name": "Does your date code end in 8C?",
 				"class": "p2kc",
 				"options": {
-					"0": "Select...",
-					"1": "Yes",
-					"2": "No"
+					"o0": "Select...",
+					"o1": "Yes",
+					"o2": "No"
 				}
 			}
 		}

@@ -9,7 +9,11 @@
 if ( typeof RTWIZZ.content !== 'undefined' ) {
 	settings = RTWIZZ.content;
 	rtwizz_changer();
-	document.getElementById( settings.changer ).addEventListener( "change", rtwizz_changer );
+	settings.changer.forEach(
+		function(entry) {
+			document.getElementById( entry ).addEventListener( "change", rtwizz_changer );
+		}
+	);	
 }
 
 function rtwizz_changer() {
@@ -20,12 +24,16 @@ function rtwizz_changer() {
 		}
 	);
 
-	opt          = document.getElementById( settings.changer );
-	visible_part = settings.action[ opt.options[ opt.selectedIndex ].value ];
-	visibles     = document.getElementsByClassName( visible_part )[0];
-	if ( typeof visibles !== 'undefined' ) {
-		visibles.style.display = '';
-	}
+	settings.changer.forEach(
+		function(entry) {
+			opt          = document.getElementById( entry );
+			visible_part = settings.action[ opt.options[ opt.selectedIndex ].value ];
+			visibles     = document.getElementsByClassName( visible_part )[0];
+			if ( typeof visibles !== 'undefined' ) {
+				visibles.style.display = '';
+			}
+		}
+	);
 
 	console.log( 'changed', opt.options[ opt.selectedIndex ].value, this.value, settings.action[this.value] );
 }
