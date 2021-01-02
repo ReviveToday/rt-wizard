@@ -1,0 +1,46 @@
+{
+	"1": {
+		"changer": [
+			"rtwiz1",
+			"rtwiz2"
+		],
+		"involves" : [
+			"SF1",
+			"p2kc",
+			"SF2",
+			"SF2s",
+			"SF3",
+			"SFG"
+		],
+		"action": {
+			"1": "SF1",
+			"2": "p2kc",
+			"o1": "SF2",
+			"o2": "SF2s",
+			"3": "SF3",
+			"G": "SFG"
+		},
+		"selection": {
+			"rtwiz1": {
+				"name": "Select your Model",
+				"options": {
+					"0": "Select...",
+					"1": "PSP 1000",
+					"2": "PSP 2000",
+					"3": "PSP 3000",
+					"4": "PSP Street",
+					"G": "PSP Go!"
+				}
+			},
+			"rtwiz2": {
+				"name": "Does your date code end in 8C?",
+				"class": "p2kc",
+				"options": {
+					"o0": "Select...",
+					"o1": "Yes",
+					"o2": "No"
+				}
+			}
+		}
+	}
+}
