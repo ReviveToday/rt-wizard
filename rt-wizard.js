@@ -13,7 +13,7 @@ if ( typeof RTWIZZ.content !== 'undefined' ) {
 		function(entry) {
 			document.getElementById( entry ).addEventListener( "change", rtwizz_changer );
 		}
-	);	
+	);
 }
 
 function rtwizz_changer() {
@@ -26,14 +26,14 @@ function rtwizz_changer() {
 
 	settings.changer.forEach(
 		function(entry) {
-			opt          = document.getElementById( entry );
-			visible_part = settings.action[ opt.options[ opt.selectedIndex ].value ];
-			visibles     = document.getElementsByClassName( visible_part )[0];
-			if ( typeof visibles !== 'undefined' ) {
-				visibles.style.display = '';
+			opt = document.getElementById( entry );
+			if ( opt.parentElement.style.display !== 'none' ) {
+				visible_part = settings.action[ opt.options[ opt.selectedIndex ].value ];
+				visibles     = document.getElementsByClassName( visible_part )[0];
+				if ( typeof visibles !== 'undefined' ) {
+					visibles.style.display = '';
+				}
 			}
 		}
 	);
-
-	console.log( 'changed', opt.options[ opt.selectedIndex ].value, this.value, settings.action[this.value] );
 }
