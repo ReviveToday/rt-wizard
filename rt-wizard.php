@@ -37,6 +37,7 @@ function rtwizd_wizard_shortcode( $atts ) {
 	$sets = json_decode( file_get_contents( __DIR__ . '/setup.json' ), 'false' );
 	$sets = $sets[ $atts['id'] ];
 
+	wp_enqueue_style( 'rt-wizard-css', plugin_dir_url( __FILE__ ) . '/rt-wizard.css', array(), '0.1' );
 	wp_enqueue_script( 'rt-wizard-js', plugin_dir_url( __FILE__ ) . '/rt-wizard.js', array(), '0.1', true );
 	wp_localize_script(
 		'rt-wizard-js',
@@ -57,7 +58,7 @@ function rtwizd_wizard_shortcode( $atts ) {
 			$optshtml .= "<option value=\"{$legend}\">{$option}</option>";
 		}
 
-		$selecthtml .= "<div class=\"{$class}\"><label for=\"{$name}\">{$label}</label><select id=\"{$name}\">{$optshtml}</select></div>";
+		$selecthtml .= "<div class=\"rtwizz {$class}\"><label for=\"{$name}\">{$label}</label><select id=\"{$name}\">{$optshtml}</select></div>";
 	}
 
 	return $selecthtml;
