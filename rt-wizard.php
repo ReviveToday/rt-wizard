@@ -13,6 +13,7 @@
  * Version:           0.1
  * Author:            soup-bowl
  * Author URI:        https://www.soupbowl.io
+ * GitHub Plugin URI: ReviveToday/wizard
  * License:           MIT
  * Text Domain:       rtwizd
  */
