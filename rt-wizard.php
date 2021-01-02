@@ -62,5 +62,27 @@ function rtwizd_wizard_shortcode( $atts ) {
 		$selecthtml .= "<div class=\"rtwizz {$class}\"><label for=\"{$name}\">{$label}</label><select id=\"{$name}\">{$optshtml}</select></div>";
 	}
 
-	return $selecthtml;
+	return wp_kses( $selecthtml, rtwizard_wizard_acceptable_html() );
+}
+
+/**
+ * Returns a kses-supported array of acceptable tags and attributes that this plugin would expect for correct functionality.
+ *
+ * @return array
+ */
+function rtwizard_wizard_acceptable_html() {
+	return array(
+		'div'    => array(
+			'class' => array(),
+		),
+		'label'  => array(
+			'for' => array(),
+		),
+		'select' => array(
+			'id' => array(),
+		),
+		'option' => array(
+			'value' => array(),
+		),
+	);
 }
