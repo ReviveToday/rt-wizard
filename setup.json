@@ -10,7 +10,8 @@
 			"SF2",
 			"SF2s",
 			"SF3",
-			"SFG"
+			"SFG",
+			"SFE"
 		],
 		"action": {
 			"1": "SF1",
@@ -18,7 +19,8 @@
 			"o1": "SF2",
 			"o2": "SF2s",
 			"3": "SF3",
-			"G": "SFG"
+			"G": "SFG",
+			"E": "SFE"
 		},
 		"selection": {
 			"rtwiz1": {
@@ -28,7 +30,8 @@
 					"1": "PSP 1000",
 					"2": "PSP 2000",
 					"3": "PSP 3000",
-					"G": "PSP Go!"
+					"G": "PSP Go!",
+					"E": "PSP Street"
 				}
 			},
 			"rtwiz2": {
